@@ -1,0 +1,49 @@
+<div class="container p-3 my-3 border">
+  <div class="card">
+    <div class="card-header "> GALLERY COMPOSANT </div>
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+      <div class="form-group">
+        <label class="control-label mr-1">Mot clé : </label>
+        <input class="mr-1" type="text" name ="motCle" ngModel required [(ngModel)]="motCle" >
+        <button type="submit" class="btn btn-primary mr-1"> Chercher </button>
+      </div>
+      </form>
+      <!--<div *ngIf="pagephotos"> -->
+      <div class="row">
+
+      <div *ngFor="let p of pagephotos?.hits" class="col-md-3  cadre">
+        <div class="card">
+          <div class="card-header ">
+            <img class= "img-fluid" src="{{p.userImageURL}}" width="25" height="25">
+            {{p.tags}}</div>
+          <div class="card-body">
+            <div>
+              <p> User : {{p.user}}</p>
+            </div>
+            <img src="{{p.previewURL}}" >
+          </div>
+      </div>
+      </div>
+      <!-- </div> -->
+      <p> </p>
+        <!-- debut de la pagination    carDclass(i)-->
+      <div class="row">
+
+        <!-- <div class="card"> -->
+
+          <ul class="nav nav-pills  ">
+            <!-- <li [ngClass]="{'active':currentPage==(i+1)}" *ngFor="let page of pages,let i=index" > -->
+           <li [ngClass]="{'active':currentPage==(i+1)}" *ngFor="let page of pages,let i=index" >
+             <a  class="clikable mr-2 " (click)="goTopage(i)" >{{i}}</a>
+           </li>
+         </ul>
+
+
+       </div>
+       <!-- fin de la pagination -->
+    </div>
+    </div>
+
+</div>
+

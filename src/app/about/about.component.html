@@ -1,0 +1,117 @@
+<!--
+/* <div class="container p-3 my-3 border"></div> */
+
+/*<div class="container p-3 my-3 bg-dark text-white"></div>*/
+
+/*<div class="container p-3 my-3 bg-primary text-white"></div>
+*/
+
+<div class="panel-group">
+  <div class="panel panel-primary">
+    <div class="panel-body">Panel Content</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">Panel Content</div>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+
+
+<div class="row mx-md-n5">
+  <div class="col py-3 px-md-5 bordered col-example">Custom column padding</div>
+  <div class="col py-3 px-md-5 bordered col-example">Custom column padding</div>
+</div>
+-->
+<div class="container p-3 my-3 border">
+  <div class="card">
+  <div class="card-header "> ABOUT COMPOSANT </div>
+  <div class="card-body">
+    <!--
+        <h3>INFOS</h3>
+        <div >
+          <ul class="list-group">
+            <li classe="list-group-item">Nom : <strong>{{info.name}}</strong>  </li>
+            <li classe="list-group-item">Email : {{info.email}} </li>
+            <li classe="list-group-item">Téléphone : {{info.telephone}} </li>
+          </ul>
+
+        </div>
+        -->
+    <div>
+      <h3>Infos</h3>
+      <ul class="list-group">
+        <li class="list-group-item"> Nom : <strong>{{infos.name}}</strong> </li>
+        <li class="list-group-item"> Email : <strong>{{infos.email}}</strong>  </li>
+        <li class="list-group-item"> telephone : <strong>{{infos.telephone}}</strong> </li>
+
+      </ul>
+    </div>
+
+
+    <div>
+      <form #f="ngForm" (ngSubmit)="onAddComentaire(f.value)" >
+      <div class="form-group">
+        <label class="control-label mr-1">Message : </label>
+        <input class= "mr-1" required="" name = "message"  ngModel type="text" [(ngModel)]="commentaire.message" >
+        <button [disabled]="!f.valid" type="submit"  class="btn btn-primary mr-1" >
+          Ajouter commentaire</button>
+      </div>
+      </form>
+    </div>
+
+    <div>
+
+      <!-- methode utilisation form
+      <div>
+      <div class="form-group">
+        <label class="control-label">Message :</label>
+        <input type="text" [(ngModel)]="commentaire.message" >
+        <button [disabled]="!commentaire.message" class="btn btn-primary" (click)="onAddComentaire()"> Ajouter commentaire</button>
+      </div>
+    </div>
+    <div>
+      --->
+      <h3>Commentaires</h3>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let c of comments ">
+          {{c.message}}
+          <span class="badge badge-pill badge-primary"> {{c.date|date : 'dd/MM/yyyy: HH:mm:ss'}} </span>
+
+
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

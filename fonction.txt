@@ -1,0 +1,18 @@
+ onSearch(dataForm) {
+   this.Purl="https://pixabay.com/api/?key=19742024-69ab1df9904302d9706bd0c71&q="+dataForm.motCle
+     + "&per_page=" + this.size + "&page=" + this.currentPage ;
+  //  console.log(dataForm);
+  //  console.log(this.Purl);
+   this.http.get(this.Purl).toPromise().then(data=>{
+     this.pagephotos=data;
+     this.totalPages = Math.trunc( data.totalHits / this.size);
+     if ((data.totalHits % this.size) !=0)  ++this.totalPages;
+     console.log(this.totalPages);
+     console.log(data);
+
+     this.pages =new Array(this.totalPages);
+
+   });
+
+
+  }

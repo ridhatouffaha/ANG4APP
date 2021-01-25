@@ -1,0 +1,72 @@
+  <span class="badge badge-pill badge-primary"> {{c.date|date : 'dd/MM/yyyy: HH:mm:ss'}} </span>
+  
+<mdb-badge primary="true" >{{c.date|date : 'dd/MM/yyyy: HH:mm:ss'}}</mdb-badge>
+
+<span class="badge"> {{c.date|date : 'dd/MM/yyyy: HH:mm:ss'}} </span>
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Cras justo odio
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Dapibus ac facilisis in
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Morbi leo risus
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Cras justo odio
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Dapibus ac facilisis in
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Morbi leo risus
+    <mdb-badge pill="true" primary="true">14</mdb-badge>
+  </li>
+</ul>
+
+
+
+ onAddComentaire() {
+    this.commentaire.date = new Date();
+    console.log(this.commentaire);
+    this.comments.push(this.commentaire);
+    this.commentaire={date:null,message: ""};
+  }
+
+
+
+info= {
+   name : "Ridha",
+   email : "touffaha.ridha@gmail.com",
+   telephone : 27291436
+ }
+  comments = [
+    {date :new Date(),message : "A" },
+    {date :new Date(),message : "B" },
+    {date :new Date(),message : "C" }
+  ];
+
+
+ console.log(c);
+
+
+
+
+ onSearch(dataForm) {
+   this.Purl="https://pixabay.com/api/?key=19742024-69ab1df9904302d9706bd0c71&q="+dataForm.motcle+"&per_page=10&page1";
+    console.log(dataForm);
+    console.log(this.Purl);
+   this.http.get(this.Purl).toPromise().then(data=>{
+     console.log(data);
+     this.pagephotos=data;
+   });
